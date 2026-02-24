@@ -16,11 +16,11 @@ internal class NewOfflineSearchResultTypeTest {
                         CoreResultType.STREET -> NewOfflineSearchResultType.STREET
                         CoreResultType.ADDRESS -> NewOfflineSearchResultType.ADDRESS
                         CoreResultType.POI -> NewOfflineSearchResultType.POI
-                        CoreResultType.COUNTRY,
-                        CoreResultType.REGION,
+                        CoreResultType.NEIGHBORHOOD -> NewOfflineSearchResultType.NEIGHBORHOOD
+                        CoreResultType.LOCALITY -> NewOfflineSearchResultType.LOCALITY
+                        CoreResultType.REGION -> NewOfflineSearchResultType.REGION
+                        CoreResultType.COUNTRY -> NewOfflineSearchResultType.COUNTRY
                         CoreResultType.DISTRICT,
-                        CoreResultType.LOCALITY,
-                        CoreResultType.NEIGHBORHOOD,
                         CoreResultType.POSTCODE,
                         CoreResultType.BLOCK,
                         CoreResultType.CATEGORY,
@@ -43,7 +43,7 @@ internal class NewOfflineSearchResultTypeTest {
         Given("NewOfflineSearchResultType.FALLBACK_TYPE") {
             val fallbackType = NewOfflineSearchResultType.FALLBACK_TYPE
             When("Fallback type called") {
-                Then("It should be ADDRESS", NewOfflineSearchResultType.ADDRESS, fallbackType)
+                Then("It should be PLACE", NewOfflineSearchResultType.PLACE, fallbackType)
             }
         }
     }
@@ -56,6 +56,10 @@ internal class NewOfflineSearchResultTypeTest {
                 NewOfflineSearchResultType.STREET,
                 NewOfflineSearchResultType.ADDRESS,
                 NewOfflineSearchResultType.POI,
+                NewOfflineSearchResultType.NEIGHBORHOOD,
+                NewOfflineSearchResultType.LOCALITY,
+                NewOfflineSearchResultType.REGION,
+                NewOfflineSearchResultType.COUNTRY,
             ).forEach {
                 When("NewOfflineSearchResultType is $it") {
                     @Suppress("DEPRECATION")
@@ -64,6 +68,10 @@ internal class NewOfflineSearchResultTypeTest {
                         NewOfflineSearchResultType.STREET -> OfflineSearchResultType.STREET
                         NewOfflineSearchResultType.ADDRESS -> OfflineSearchResultType.ADDRESS
                         NewOfflineSearchResultType.POI -> OfflineSearchResultType.DEFAULT
+                        NewOfflineSearchResultType.NEIGHBORHOOD -> OfflineSearchResultType.DEFAULT
+                        NewOfflineSearchResultType.LOCALITY -> OfflineSearchResultType.DEFAULT
+                        NewOfflineSearchResultType.REGION -> OfflineSearchResultType.DEFAULT
+                        NewOfflineSearchResultType.COUNTRY -> OfflineSearchResultType.DEFAULT
                         else -> error("Unprocessed NewOfflineSearchResultType value $it")
                     }
 

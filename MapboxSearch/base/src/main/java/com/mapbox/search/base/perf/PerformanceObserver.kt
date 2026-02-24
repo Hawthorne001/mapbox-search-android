@@ -14,6 +14,7 @@ internal interface PerformanceObserver {
     /**
      * Notifies about synchronous section end.
      * @param name always matches last started synchronous section
+     * @param duration the duration of the section, or null if not available
      * @see [syncSectionStarted]
      */
     fun syncSectionCompleted(name: String, duration: Duration?)

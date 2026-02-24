@@ -10,11 +10,31 @@ import com.mapbox.search.base.core.CoreResultType
 public object NewOfflineSearchResultType {
 
     /**
+     * Generally recognized countries.
+     */
+    public const val COUNTRY: String = "COUNTRY"
+
+    /**
+     * Top-level sub-national administrative features, like states or provinces.
+     */
+    public const val REGION: String = "REGION"
+
+    /**
      * Typically these are cities, villages, municipalities, etc.
      * They’re usually features used in postal addressing, and are suitable for display in ambient
      * end-user applications where current-location context is needed (for example, in weather displays).
      */
     public const val PLACE: String = "PLACE"
+
+    /**
+     * Official sub-city features like city districts.
+     */
+    public const val LOCALITY: String = "LOCALITY"
+
+    /**
+     * Colloquial sub-city features, like neighborhoods.
+     */
+    public const val NEIGHBORHOOD: String = "NEIGHBORHOOD"
 
     /**
      * Features that are smaller than places and that correspond to streets in cities, villages, etc.
@@ -37,7 +57,11 @@ public object NewOfflineSearchResultType {
      */
     @Retention(AnnotationRetention.BINARY)
     @StringDef(
+        COUNTRY,
+        REGION,
         PLACE,
+        LOCALITY,
+        NEIGHBORHOOD,
         STREET,
         ADDRESS,
         POI,
@@ -46,16 +70,27 @@ public object NewOfflineSearchResultType {
 
     @Type
     @JvmSynthetic
-    internal val FALLBACK_TYPE = ADDRESS
+    internal val FALLBACK_TYPE = PLACE
 
     @Type
     internal fun createFromRawResultType(type: CoreResultType): String? {
         return when (type) {
+            CoreResultType.COUNTRY -> COUNTRY
+            CoreResultType.REGION -> REGION
             CoreResultType.PLACE -> PLACE
+            CoreResultType.LOCALITY -> LOCALITY
+            CoreResultType.NEIGHBORHOOD -> NEIGHBORHOOD
             CoreResultType.STREET -> STREET
             CoreResultType.ADDRESS -> ADDRESS
             CoreResultType.POI -> POI
-            else -> null
+            CoreResultType.DISTRICT,
+            CoreResultType.POSTCODE,
+            CoreResultType.BLOCK,
+            CoreResultType.CATEGORY,
+            CoreResultType.BRAND,
+            CoreResultType.QUERY,
+            CoreResultType.USER_RECORD,
+            CoreResultType.UNKNOWN -> null
         }
     }
 
@@ -66,6 +101,7 @@ public object NewOfflineSearchResultType {
             PLACE -> OfflineSearchResultType.PLACE
             STREET -> OfflineSearchResultType.STREET
             ADDRESS -> OfflineSearchResultType.ADDRESS
+            NEIGHBORHOOD, LOCALITY, REGION, COUNTRY -> OfflineSearchResultType.DEFAULT
             else -> OfflineSearchResultType.DEFAULT
         }
     }

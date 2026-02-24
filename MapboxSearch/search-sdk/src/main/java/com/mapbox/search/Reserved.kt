@@ -1,10 +1,10 @@
 package com.mapbox.search
 
 /**
- * Special annotation for marking properties/functions/classes as reserved for internal
+ * Special annotation for marking properties, functions, or classes as reserved for internal
  * or special use.
  *
- * @param flags list of flags, that indicates particular sets of restricted functionality.
+ * @property flags List of flags that indicate particular sets of restricted functionality.
  */
 internal annotation class Reserved(vararg val flags: Flags) {
 

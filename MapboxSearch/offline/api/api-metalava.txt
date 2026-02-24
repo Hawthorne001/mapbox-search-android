@@ -3,13 +3,17 @@ package com.mapbox.search.offline {
 
   public final class NewOfflineSearchResultType {
     field public static final String ADDRESS = "ADDRESS";
+    field public static final String COUNTRY = "COUNTRY";
     field public static final com.mapbox.search.offline.NewOfflineSearchResultType INSTANCE;
+    field public static final String LOCALITY = "LOCALITY";
+    field public static final String NEIGHBORHOOD = "NEIGHBORHOOD";
     field public static final String PLACE = "PLACE";
     field public static final String POI = "POI";
+    field public static final String REGION = "REGION";
     field public static final String STREET = "STREET";
   }
 
-  @StringDef({com.mapbox.search.offline.NewOfflineSearchResultType.PLACE, com.mapbox.search.offline.NewOfflineSearchResultType.STREET, com.mapbox.search.offline.NewOfflineSearchResultType.ADDRESS, com.mapbox.search.offline.NewOfflineSearchResultType.POI}) @kotlin.annotation.Retention(kotlin.annotation.AnnotationRetention.BINARY) public static @interface NewOfflineSearchResultType.Type {
+  @StringDef({com.mapbox.search.offline.NewOfflineSearchResultType.COUNTRY, com.mapbox.search.offline.NewOfflineSearchResultType.REGION, com.mapbox.search.offline.NewOfflineSearchResultType.PLACE, com.mapbox.search.offline.NewOfflineSearchResultType.LOCALITY, com.mapbox.search.offline.NewOfflineSearchResultType.NEIGHBORHOOD, com.mapbox.search.offline.NewOfflineSearchResultType.STREET, com.mapbox.search.offline.NewOfflineSearchResultType.ADDRESS, com.mapbox.search.offline.NewOfflineSearchResultType.POI}) @kotlin.annotation.Retention(kotlin.annotation.AnnotationRetention.BINARY) public static @interface NewOfflineSearchResultType.Type {
   }
 
   @com.mapbox.annotation.MapboxExperimental @kotlinx.parcelize.Parcelize public final class OfflineCategorySearchOptions implements android.os.Parcelable {

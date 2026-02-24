@@ -23,6 +23,11 @@ private val emptyAsyncSection = AsyncSection("empty", -1, TimeSource.Monotonic.m
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP_PREFIX)
 object PerformanceTracker {
 
+    private val performanceObservers = CopyOnWriteArraySet<PerformanceObserver>()
+    private val asyncSectionIdCounter = AtomicInteger(0)
+
+    val trackingIsActive get() = performanceObservers.isNotEmpty()
+
     internal fun addObserver(observer: PerformanceObserver) {
         performanceObservers.add(observer)
     }
@@ -36,11 +41,6 @@ object PerformanceTracker {
         asyncSectionIdCounter.set(0)
         performanceObservers.clear()
     }
-
-    private val performanceObservers = CopyOnWriteArraySet<PerformanceObserver>()
-    private val asyncSectionIdCounter = AtomicInteger(0)
-
-    val trackingIsActive get() = performanceObservers.isNotEmpty()
 
     @OptIn(ExperimentalTime::class)
     fun asyncSectionStarted(name: String): AsyncSection {

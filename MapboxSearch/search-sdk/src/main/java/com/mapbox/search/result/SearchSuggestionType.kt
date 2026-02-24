@@ -15,10 +15,10 @@ import kotlinx.parcelize.Parcelize
 public abstract class SearchSuggestionType internal constructor() : Parcelable {
 
     /**
-     * Search suggestion of the [SearchResultSuggestion] type points to the only [SearchResult]
+     * Search suggestion that points to the single [SearchResult]
      * that will be returned after selection.
      *
-     * @param newTypes Non-empty list of [NewSearchResultType.Type] values.
+     * @property newTypes Non-empty list of [NewSearchResultType.Type] values.
      */
     @Parcelize
     public class SearchResultSuggestion internal constructor(

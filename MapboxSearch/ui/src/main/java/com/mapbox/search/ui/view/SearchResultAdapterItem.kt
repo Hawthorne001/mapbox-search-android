@@ -31,8 +31,8 @@ public abstract class SearchResultAdapterItem internal constructor() {
 
     /**
      * Item that represents one search history entry.
-     * @param record The [HistoryRecord] for the item.
-     * @param isFavorite The flag that denotes whether the [record] is also part of the [com.mapbox.search.record.FavoritesDataProvider].
+     * @property record The [HistoryRecord] for the item.
+     * @property isFavorite Whether [record] is also part of [com.mapbox.search.record.FavoritesDataProvider].
      */
     public class History(
         public val record: HistoryRecord,
@@ -77,27 +77,17 @@ public abstract class SearchResultAdapterItem internal constructor() {
     public object EmptySearchResults : SearchResultAdapterItem()
 
     /**
-     * Item that represents any search result. This can be a result from any search engine, or use case, for example,
-     * [com.mapbox.search.result.SearchSuggestion], [com.mapbox.search.result.SearchResult],
-     * [com.mapbox.search.offline.OfflineSearchResult], etc.
+     * Item that represents any search result (e.g. [com.mapbox.search.result.SearchSuggestion],
+     * [com.mapbox.search.result.SearchResult], [com.mapbox.search.offline.OfflineSearchResult]).
      *
-     * @param title The title view text. Usually, this is a name of the search result.
-     *
-     * @param subtitle The subtitle view text. Usually, this is an address of the search result, or POI category.
-     *
-     * @param distanceMeters The distance in meters from user's location to the search result.
-     *
-     * @param drawable The drawable id that represents the search result.
-     * For example, this can be address icon, or category. See [Maki](https://github.com/mapbox/maki/) icons.
-     *
-     * @param drawableColor The color that can be used for [drawable] tint.
-     * If empty, the default color will be chosen automatically.
-     *
-     * @param isPopulateQueryVisible The flag that denotes whether the `Populate` view will be shown.
-     * Usually, when a user clicks on that view, search result's name should be used to populate search query
-     * and initiate a search request with query's text. False by default.
-     *
-     * @param payload Anything that can be used to associate this item with the search result.
+     * @property title Title text; usually the name of the search result.
+     * @property subtitle Subtitle text; usually the address or POI category.
+     * @property distanceMeters Distance in meters from user's location to the search result.
+     * @property drawable Drawable resource id for the search result (e.g. address icon or category).
+     * See [Maki](https://github.com/mapbox/maki/) icons.
+     * @property drawableColor Optional tint color for [drawable]. Default chosen if null.
+     * @property isPopulateQueryVisible Whether the "Populate" view is shown (click populates search query). Default: false.
+     * @property payload Optional payload to associate this item with the search result.
      */
     public class Result @JvmOverloads public constructor(
         public val title: CharSequence,
@@ -162,8 +152,8 @@ public abstract class SearchResultAdapterItem internal constructor() {
     }
 
     /**
-     * Item that represents `Missing result?` button.
-     * @param responseInfo The [ResponseInfo] that's needed for constructing feedback metadata.
+     * Item that represents the "Missing result?" button.
+     * @property responseInfo [ResponseInfo] used to construct feedback metadata.
      */
     public class MissingResultFeedback(
         public val responseInfo: ResponseInfo,
@@ -199,8 +189,8 @@ public abstract class SearchResultAdapterItem internal constructor() {
     }
 
     /**
-     * Item that represents error view and `Retry` button.
-     * @param uiError The error type and information.
+     * Item that represents the error view and "Retry" button.
+     * @property uiError The error type and information.
      */
     public class Error(
         public val uiError: UiError,

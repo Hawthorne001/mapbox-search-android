@@ -474,12 +474,13 @@ public interface SearchEngine {
     )
 
     /**
-     * Registers [dataProvider] in this [SearchEngine].
+     * Registers the given [IndexableDataProvider] in this [SearchEngine].
      *
-     * @param dataProvider [IndexableDataProvider] to register.
-     * @param executor Executor used for events dispatching. By default events are dispatched on the main thread.
+     * @param R the type of [IndexableRecord] provided by [dataProvider].
+     * @param dataProvider The [IndexableDataProvider] to register.
+     * @param executor Executor used for events dispatching.
      * @param callback Callback to handle result.
-     * @return an object representing pending completion of the task.
+     * @return An [AsyncOperationTask] representing pending completion of the task.
      */
     public fun <R : IndexableRecord> registerDataProvider(
         dataProvider: IndexableDataProvider<R>,
@@ -488,11 +489,13 @@ public interface SearchEngine {
     ): AsyncOperationTask
 
     /**
-     * Registers [dataProvider] in this [SearchEngine].
+     * Registers the given [IndexableDataProvider] in this [SearchEngine].
+     * Events are dispatched on the main thread.
      *
-     * @param dataProvider [IndexableDataProvider] to register.
-     * @param callback Callback to handle result. Events are dispatched on the main thread.
-     * @return an object representing pending completion of the task.
+     * @param R the type of [IndexableRecord] provided by [dataProvider].
+     * @param dataProvider The [IndexableDataProvider] to register.
+     * @param callback Callback to handle result.
+     * @return An [AsyncOperationTask] representing pending completion of the task.
      */
     public fun <R : IndexableRecord> registerDataProvider(
         dataProvider: IndexableDataProvider<R>,
@@ -504,12 +507,13 @@ public interface SearchEngine {
     )
 
     /**
-     * Unregisters previously registered [IndexableDataProvider].
+     * Unregisters a previously registered [IndexableDataProvider].
      *
-     * @param dataProvider [IndexableDataProvider] to unregister.
-     * @param executor Executor used for events dispatching. By default events are dispatched on the main thread.
+     * @param R the type of [IndexableRecord] provided by [dataProvider].
+     * @param dataProvider The [IndexableDataProvider] to unregister.
+     * @param executor Executor used for events dispatching.
      * @param callback Callback to handle result.
-     * @return an object representing pending completion of the task.
+     * @return An [AsyncOperationTask] representing pending completion of the task.
      */
     public fun <R : IndexableRecord> unregisterDataProvider(
         dataProvider: IndexableDataProvider<R>,
@@ -518,11 +522,13 @@ public interface SearchEngine {
     ): AsyncOperationTask
 
     /**
-     * Unregisters previously registered [IndexableDataProvider].
+     * Unregisters a previously registered [IndexableDataProvider].
+     * Events are dispatched on the main thread.
      *
-     * @param dataProvider [IndexableDataProvider] to unregister.
-     * @param callback Callback to handle result. Events are dispatched on the main thread.
-     * @return an object representing pending completion of the task.
+     * @param R the type of [IndexableRecord] provided by [dataProvider].
+     * @param dataProvider The [IndexableDataProvider] to unregister.
+     * @param callback Callback to handle result.
+     * @return An [AsyncOperationTask] representing pending completion of the task.
      */
     public fun <R : IndexableRecord> unregisterDataProvider(
         dataProvider: IndexableDataProvider<R>,
@@ -554,7 +560,7 @@ public interface SearchEngine {
          *
          * @param settings [SearchEngine] settings.
          *
-         * @return a new instance instance of [SearchEngine].
+         * @return A new instance of [SearchEngine].
          * @see createSearchEngineWithBuiltInDataProviders
          * @see <a href="https://docs.mapbox.com/api/search/geocoding-v5/">Geocoding v5 API</a>
          */
@@ -568,12 +574,12 @@ public interface SearchEngine {
          * Creates a new instance of the [SearchEngine].
          * A new instance doesn't have any [IndexableDataProvider] registered by default.
          *
-         * @param settings [SearchEngine] settings.
-         * @param apiType The type of the API used by the Search Engines.
+         * @param apiType The type of the API used by the Search Engine.
          * Note that [ApiType.GEOCODING] is the only available publicly.
          * You might need to [contact sales](https://www.mapbox.com/contact/sales/) to enable access for other API types.
+         * @param settings [SearchEngineSettings] for the engine.
          *
-         * @return a new instance instance of [SearchEngine].
+         * @return A new instance of [SearchEngine].
          * @see createSearchEngineWithBuiltInDataProviders
          */
         @JvmStatic
@@ -597,10 +603,10 @@ public interface SearchEngine {
          * For more information, visit [Geocoding v5 API page](https://docs.mapbox.com/api/search/geocoding-v5/).
          *
          * @param settings [SearchEngine] settings.
-         * @param executor Executor used for events dispatching. By default events are dispatched on the main thread.
+         * @param executor Executor used for events dispatching. Default: main thread.
          * @param callback Callback to handle result.
          *
-         * @return a new instance of [SearchEngine].
+         * @return A new instance of [SearchEngine].
          * @see createSearchEngine
          * @see <a href="https://docs.mapbox.com/api/search/geocoding-v5/">Geocoding v5 API</a>
          */
@@ -620,14 +626,14 @@ public interface SearchEngine {
          * [com.mapbox.search.record.HistoryDataProvider] and [com.mapbox.search.record.FavoritesDataProvider])
          * registered by default.
          *
-         * @param settings [SearchEngine] settings.
-         * @param apiType The type of the API used by the Search Engines. By default [ApiType.GEOCODING] will be used.
+         * @param apiType The type of the API used by the Search Engine. Default: [ApiType.GEOCODING].
          * Note that [ApiType.GEOCODING] is the only available publicly.
          * You might need to [contact sales](https://www.mapbox.com/contact/sales/) to enable access for other API types.
-         * @param executor Executor used for events dispatching. By default events are dispatched on the main thread.
+         * @param settings [SearchEngineSettings] for the engine.
+         * @param executor Executor used for events dispatching. Default: main thread.
          * @param callback Callback to handle result.
          *
-         * @return a new instance of [SearchEngine].
+         * @return A new instance of [SearchEngine].
          * @see createSearchEngine
          */
         @JvmOverloads

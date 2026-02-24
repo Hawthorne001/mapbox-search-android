@@ -13,6 +13,10 @@ internal fun createNewSearchResultTypeFromOfflineType(
         NewOfflineSearchResultType.STREET -> NewSearchResultType.STREET
         NewOfflineSearchResultType.ADDRESS -> NewSearchResultType.ADDRESS
         NewOfflineSearchResultType.POI -> NewSearchResultType.POI
+        NewOfflineSearchResultType.NEIGHBORHOOD -> NewSearchResultType.NEIGHBORHOOD
+        NewOfflineSearchResultType.LOCALITY -> NewSearchResultType.LOCALITY
+        NewOfflineSearchResultType.REGION -> NewSearchResultType.REGION
+        NewOfflineSearchResultType.COUNTRY -> NewSearchResultType.COUNTRY
         else -> {
             failDebug {
                 "Unprocessed offline search result type: $type"

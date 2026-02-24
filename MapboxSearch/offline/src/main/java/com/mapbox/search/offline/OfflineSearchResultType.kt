@@ -45,6 +45,6 @@ public enum class OfflineSearchResultType {
         /**
          * The default type used when the type of an [OfflineSearchResult] is not present in [OfflineSearchResultType].
          */
-        public val DEFAULT: OfflineSearchResultType = ADDRESS
+        public val DEFAULT: OfflineSearchResultType = PLACE
     }
 }

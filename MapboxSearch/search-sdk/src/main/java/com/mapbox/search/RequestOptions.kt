@@ -11,18 +11,20 @@ import kotlinx.parcelize.Parcelize
  *
  * @property query Search query.
  *
- * @property options Search options, that were used for the original request.
- * See [proximityRewritten] and [originRewritten] to check whether some properties have been rewritten
+ * @property options Search options that were used for the original request.
+ * See [proximityRewritten] and [originRewritten] to check whether some properties have been rewritten.
  *
- * @property proximityRewritten denotes whether [SearchOptions.proximity] property has been rewritten by the Search SDK.
- * This may happen when passed to the [com.mapbox.search.SearchEngine] [SearchOptions] don't have [SearchOptions.proximity] set.
+ * @property proximityRewritten Denotes whether [SearchOptions.proximity] has been rewritten by the Search SDK.
+ * This may happen when [SearchOptions] passed to [com.mapbox.search.SearchEngine] do not have [SearchOptions.proximity] set.
  *
- * @property originRewritten denotes whether [SearchOptions.origin] property has been rewritten by the Search SDK.
- * This may happen when passed to the [com.mapbox.search.SearchEngine] [SearchOptions] don't have [SearchOptions.origin] set.
+ * @property originRewritten Denotes whether [SearchOptions.origin] has been rewritten by the Search SDK.
+ * This may happen when [SearchOptions] passed to [com.mapbox.search.SearchEngine] do not have [SearchOptions.origin] set.
  *
- * @property endpoint Search method. One of { "suggest", "category", "reverse" }.
+ * @property endpoint Search method. One of "suggest", "category", "reverse".
  *
  * @property sessionID Session ID that groups a series of requests for billing purposes.
+ *
+ * @property requestContext Internal request context. Not part of the public API.
  */
 @Parcelize
 public class RequestOptions internal constructor(

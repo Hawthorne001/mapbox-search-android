@@ -36,6 +36,10 @@ import org.junit.BeforeClass
 import org.junit.Test
 import kotlin.math.abs
 
+/**
+ * TODO(NAVAND-6929) these tests are currently flaky and may fail depending on emulator, network,
+ * or other environmental conditions.
+ */
 @Suppress("LargeClass")
 internal class OfflineSearchEngineIntegrationTest {
 

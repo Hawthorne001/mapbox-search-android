@@ -91,8 +91,8 @@ internal class OfflineSearchResultTest {
     @TestFactory
     fun `Check OfflineSearchResult instantiation with unsupported type`() = TestCase {
         Given("OfflineSearchResult constructor") {
-            When("OfflineSearchResult instantiated with ${CoreResultType.LOCALITY} type") {
-                val baseResult = TEST_BASE_RAW_RESULT_1.copy(types = listOf(CoreResultType.LOCALITY))
+            When("OfflineSearchResult instantiated with ${CoreResultType.QUERY} type") {
+                val baseResult = TEST_BASE_RAW_RESULT_1.copy(types = listOf(CoreResultType.QUERY))
                 val offlineSearchResult = OfflineSearchResult(baseResult)
 
                 Then(

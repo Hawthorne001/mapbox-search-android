@@ -14,37 +14,42 @@ public interface AnalyticsService {
 
     /**
      * Sends feedback event to analytics.
-     * @param searchResult search result, for which feedback is given.
-     * @param responseInfo search context, associated with provided *searchResult*.
-     * @param event extra information for feedback, provided by user.
+     * @param searchResult Search result for which feedback is given.
+     * @param responseInfo Search context associated with the provided [searchResult].
+     * @param event Extra information for feedback, provided by user.
+     * @param callback Callback to handle completion. Optional.
      */
     public fun sendFeedback(searchResult: SearchResult, responseInfo: ResponseInfo, event: FeedbackEvent, callback: CompletionCallback<Unit>? = null)
 
     /**
      * Sends feedback event to analytics.
-     * @param searchSuggestion search suggestion, for which feedback is given.
-     * @param responseInfo search context, associated with provided *searchSuggestion*.
-     * @param event extra information for feedback, provided by user.
+     * @param searchSuggestion Search suggestion for which feedback is given.
+     * @param responseInfo Search context associated with the provided [searchSuggestion].
+     * @param event Extra information for feedback, provided by user.
+     * @param callback Callback to handle completion. Optional.
      */
     public fun sendFeedback(searchSuggestion: SearchSuggestion, responseInfo: ResponseInfo, event: FeedbackEvent, callback: CompletionCallback<Unit>? = null)
 
     /**
      * Sends feedback event to analytics.
-     * @param historyRecord history record, for which feedback is given.
-     * @param event extra information for feedback, provided by user.
+     * @param historyRecord History record for which feedback is given.
+     * @param event Extra information for feedback, provided by user.
+     * @param callback Callback to handle completion. Optional.
      */
     public fun sendFeedback(historyRecord: HistoryRecord, event: FeedbackEvent, callback: CompletionCallback<Unit>? = null)
 
     /**
      * Sends feedback event to analytics.
-     * @param favoriteRecord favorite record, for which feedback is given.
-     * @param event extra information for feedback, provided by user.
+     * @param favoriteRecord Favorite record for which feedback is given.
+     * @param event Extra information for feedback, provided by user.
+     * @param callback Callback to handle completion. Optional.
      */
     public fun sendFeedback(favoriteRecord: FavoriteRecord, event: FeedbackEvent, callback: CompletionCallback<Unit>? = null)
 
     /**
      * Sends missing result feedback event to analytics.
-     * @param event extra information for feedback, provided by user.
+     * @param event Extra information for feedback, provided by user.
+     * @param callback Callback to handle completion. Optional.
      */
     public fun sendMissingResultFeedback(event: MissingResultFeedbackEvent, callback: CompletionCallback<Unit>? = null)
 }

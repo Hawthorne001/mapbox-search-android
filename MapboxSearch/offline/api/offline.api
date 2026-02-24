@@ -7,9 +7,13 @@ public final class com/mapbox/search/offline/BuildConfig {
 
 public final class com/mapbox/search/offline/NewOfflineSearchResultType {
 	public static final field ADDRESS Ljava/lang/String;
+	public static final field COUNTRY Ljava/lang/String;
 	public static final field INSTANCE Lcom/mapbox/search/offline/NewOfflineSearchResultType;
+	public static final field LOCALITY Ljava/lang/String;
+	public static final field NEIGHBORHOOD Ljava/lang/String;
 	public static final field PLACE Ljava/lang/String;
 	public static final field POI Ljava/lang/String;
+	public static final field REGION Ljava/lang/String;
 	public static final field STREET Ljava/lang/String;
 }
 
